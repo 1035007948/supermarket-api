@@ -190,7 +190,9 @@ class MemberControllerTest {
         stats.put("level", "GOLD");
         stats.put("points", 2000);
         stats.put("storedBalance", 10000.0);
+        stats.put("totalRecharge", 15000.0);
         stats.put("nextLevelName", "已达最高等级");
+        stats.put("nextLevelNeedRecharge", 0.0);
 
         when(memberService.getMemberStats(1L)).thenReturn(com.supermarket.api.dto.ApiResponse.success(stats));
 
@@ -198,7 +200,8 @@ class MemberControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.code").value(200))
                 .andExpect(jsonPath("$.data.level").value("GOLD"))
-                .andExpect(jsonPath("$.data.points").value(2000));
+                .andExpect(jsonPath("$.data.points").value(2000))
+                .andExpect(jsonPath("$.data.totalRecharge").value(15000.0));
     }
 
     @Test

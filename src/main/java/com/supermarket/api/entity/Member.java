@@ -60,6 +60,12 @@ public class Member {
     private Double storedBalance = 0.0;
 
     /**
+     * 累计充值金额
+     */
+    @Column(nullable = false)
+    private Double totalRecharge = 0.0;
+
+    /**
      * 累计消费金额
      */
     @Column(nullable = false)
@@ -84,10 +90,10 @@ public class Member {
     private LocalDateTime updateTime = LocalDateTime.now();
 
     /**
-     * 更新会员等级（根据储值余额）
+     * 更新会员等级（根据累计充值金额）
      */
-    public void updateLevelByBalance() {
-        this.level = MemberLevel.calculateLevel(this.storedBalance);
+    public void updateLevelByTotalRecharge() {
+        this.level = MemberLevel.calculateLevel(this.totalRecharge);
     }
 
     /**
@@ -127,7 +133,8 @@ public class Member {
      */
     public void recharge(double amount) {
         this.storedBalance += amount;
-        updateLevelByBalance();
+        this.totalRecharge += amount;
+        updateLevelByTotalRecharge();
     }
 
     /**
@@ -137,7 +144,6 @@ public class Member {
         if (this.storedBalance >= amount) {
             this.storedBalance -= amount;
             this.totalConsumption += amount;
-            updateLevelByBalance();
             return true;
         }
         return false;

@@ -25,32 +25,32 @@ class MemberTest {
     }
 
     @Test
-    void testUpdateLevelByBalance_RegularToSilver() {
-        member.setStoredBalance(1000.0);
-        member.updateLevelByBalance();
+    void testUpdateLevelByTotalRecharge_RegularToSilver() {
+        member.setTotalRecharge(1000.0);
+        member.updateLevelByTotalRecharge();
         assertEquals(MemberLevel.SILVER, member.getLevel());
     }
 
     @Test
-    void testUpdateLevelByBalance_RegularToGold() {
-        member.setStoredBalance(5000.0);
-        member.updateLevelByBalance();
+    void testUpdateLevelByTotalRecharge_RegularToGold() {
+        member.setTotalRecharge(5000.0);
+        member.updateLevelByTotalRecharge();
         assertEquals(MemberLevel.GOLD, member.getLevel());
     }
 
     @Test
-    void testUpdateLevelByBalance_SilverToGold() {
+    void testUpdateLevelByTotalRecharge_SilverToGold() {
         member.setLevel(MemberLevel.SILVER);
-        member.setStoredBalance(5000.0);
-        member.updateLevelByBalance();
+        member.setTotalRecharge(5000.0);
+        member.updateLevelByTotalRecharge();
         assertEquals(MemberLevel.GOLD, member.getLevel());
     }
 
     @Test
-    void testUpdateLevelByBalance_GoldRemainsGold() {
+    void testUpdateLevelByTotalRecharge_GoldRemainsGold() {
         member.setLevel(MemberLevel.GOLD);
-        member.setStoredBalance(10000.0);
-        member.updateLevelByBalance();
+        member.setTotalRecharge(10000.0);
+        member.updateLevelByTotalRecharge();
         assertEquals(MemberLevel.GOLD, member.getLevel());
     }
 
@@ -125,10 +125,12 @@ class MemberTest {
     void testRecharge() {
         member.recharge(1000.0);
         assertEquals(1000.0, member.getStoredBalance(), 0.001);
+        assertEquals(1000.0, member.getTotalRecharge(), 0.001);
         assertEquals(MemberLevel.SILVER, member.getLevel());
 
         member.recharge(4000.0);
         assertEquals(5000.0, member.getStoredBalance(), 0.001);
+        assertEquals(5000.0, member.getTotalRecharge(), 0.001);
         assertEquals(MemberLevel.GOLD, member.getLevel());
     }
 
@@ -148,5 +150,21 @@ class MemberTest {
         assertFalse(result);
         assertEquals(500.0, member.getStoredBalance(), 0.001);
         assertEquals(0.0, member.getTotalConsumption(), 0.001);
+    }
+
+    @Test
+    void testLevelNotChangeAfterConsumption() {
+        // 先充值升级到银卡会员
+        member.recharge(2000.0);
+        assertEquals(MemberLevel.SILVER, member.getLevel());
+        assertEquals(2000.0, member.getTotalRecharge(), 0.001);
+
+        // 消费大部分储值余额
+        member.useStoredBalance(1500.0);
+        assertEquals(500.0, member.getStoredBalance(), 0.001);
+
+        // 验证等级保持不变（因为累计充值仍为2000）
+        assertEquals(MemberLevel.SILVER, member.getLevel());
+        assertEquals(2000.0, member.getTotalRecharge(), 0.001);
     }
 }

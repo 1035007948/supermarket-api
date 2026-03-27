@@ -330,25 +330,26 @@ public class MemberService {
         stats.put("discountRate", member.getLevel().getDiscountRate());
         stats.put("pointMultiplier", member.getLevel().getPointMultiplier());
 
-        // 计算距离下一级所需储值
-        double nextLevelBalance = 0.0;
+        // 计算距离下一级所需累计充值金额
+        double nextLevelRecharge = 0.0;
         String nextLevelName = "";
         switch (member.getLevel()) {
             case REGULAR:
-                nextLevelBalance = 1000 - member.getStoredBalance();
+                nextLevelRecharge = 1000 - member.getTotalRecharge();
                 nextLevelName = "银卡会员";
                 break;
             case SILVER:
-                nextLevelBalance = 5000 - member.getStoredBalance();
+                nextLevelRecharge = 5000 - member.getTotalRecharge();
                 nextLevelName = "金卡会员";
                 break;
             case GOLD:
-                nextLevelBalance = 0.0;
+                nextLevelRecharge = 0.0;
                 nextLevelName = "已达最高等级";
                 break;
         }
+        stats.put("totalRecharge", member.getTotalRecharge());
         stats.put("nextLevelName", nextLevelName);
-        stats.put("nextLevelNeedBalance", Math.max(0.0, nextLevelBalance));
+        stats.put("nextLevelNeedRecharge", Math.max(0.0, nextLevelRecharge));
 
         return ApiResponse.success(stats);
     }

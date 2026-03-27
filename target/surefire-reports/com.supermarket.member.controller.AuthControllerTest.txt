@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: com.supermarket.member.controller.AuthControllerTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 2.661 s <<< FAILURE! - in com.supermarket.member.controller.AuthControllerTest
+testLogin  Time elapsed: 0.147 s  <<< FAILURE!
+java.lang.AssertionError: Status expected:<200> but was:<400>
+	at com.supermarket.member.controller.AuthControllerTest.testLogin(AuthControllerTest.java:57)
+
+testRegister  Time elapsed: 0.008 s  <<< FAILURE!
+java.lang.AssertionError: Status expected:<200> but was:<400>
+	at com.supermarket.member.controller.AuthControllerTest.testRegister(AuthControllerTest.java:41)
+

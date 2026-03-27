@@ -266,6 +266,7 @@ class MemberServiceTest {
 
     @Test
     void testGetMemberStats() {
+        testMember.setTotalRecharge(500.0);
         when(memberRepository.findById(1L)).thenReturn(Optional.of(testMember));
 
         ApiResponse<Map<String, Object>> response = memberService.getMemberStats(1L);
@@ -278,14 +279,15 @@ class MemberServiceTest {
         assertEquals("REGULAR", stats.get("level"));
         assertEquals(100, stats.get("points"));
         assertEquals(500.0, stats.get("storedBalance"));
+        assertEquals(500.0, stats.get("totalRecharge"));
         assertEquals("银卡会员", stats.get("nextLevelName"));
-        assertEquals(500.0, stats.get("nextLevelNeedBalance"));
+        assertEquals(500.0, stats.get("nextLevelNeedRecharge"));
     }
 
     @Test
     void testGetMemberStats_GoldMember() {
         testMember.setLevel(MemberLevel.GOLD);
-        testMember.setStoredBalance(10000.0);
+        testMember.setTotalRecharge(10000.0);
         when(memberRepository.findById(1L)).thenReturn(Optional.of(testMember));
 
         ApiResponse<Map<String, Object>> response = memberService.getMemberStats(1L);
@@ -294,8 +296,9 @@ class MemberServiceTest {
         Map<String, Object> stats = response.getData();
         assertNotNull(stats);
         assertEquals("GOLD", stats.get("level"));
+        assertEquals(10000.0, stats.get("totalRecharge"));
         assertEquals("已达最高等级", stats.get("nextLevelName"));
-        assertEquals(0.0, stats.get("nextLevelNeedBalance"));
+        assertEquals(0.0, stats.get("nextLevelNeedRecharge"));
     }
 
     @Test

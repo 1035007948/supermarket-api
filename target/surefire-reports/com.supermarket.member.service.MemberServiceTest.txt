@@ -1,0 +1,54 @@
+-------------------------------------------------------------------------------
+Test set: com.supermarket.member.service.MemberServiceTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 1.521 s <<< FAILURE! - in com.supermarket.member.service.MemberServiceTest
+testUpdateMemberLevel  Time elapsed: 0.008 s  <<< ERROR!
+org.springframework.dao.InvalidDataAccessResourceUsageException: could not prepare statement; SQL [select member0_.id as col_0_0_ from members member0_ where member0_.member_no=? limit ?]; nested exception is org.hibernate.exception.SQLGrammarException: could not prepare statement
+	at com.supermarket.member.service.MemberServiceTest.testUpdateMemberLevel(MemberServiceTest.java:98)
+Caused by: org.hibernate.exception.SQLGrammarException: could not prepare statement
+	at com.supermarket.member.service.MemberServiceTest.testUpdateMemberLevel(MemberServiceTest.java:98)
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: 
+Table "MEMBERS" not found (this database is empty); SQL statement:
+select member0_.id as col_0_0_ from members member0_ where member0_.member_no=? limit ? [42104-214]
+	at com.supermarket.member.service.MemberServiceTest.testUpdateMemberLevel(MemberServiceTest.java:98)
+
+testLoginWithWrongPassword  Time elapsed: 0.009 s  <<< ERROR!
+org.springframework.dao.InvalidDataAccessResourceUsageException: could not prepare statement; SQL [select member0_.id as col_0_0_ from members member0_ where member0_.member_no=? limit ?]; nested exception is org.hibernate.exception.SQLGrammarException: could not prepare statement
+	at com.supermarket.member.service.MemberServiceTest.testLoginWithWrongPassword(MemberServiceTest.java:87)
+Caused by: org.hibernate.exception.SQLGrammarException: could not prepare statement
+	at com.supermarket.member.service.MemberServiceTest.testLoginWithWrongPassword(MemberServiceTest.java:87)
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: 
+Table "MEMBERS" not found (this database is empty); SQL statement:
+select member0_.id as col_0_0_ from members member0_ where member0_.member_no=? limit ? [42104-214]
+	at com.supermarket.member.service.MemberServiceTest.testLoginWithWrongPassword(MemberServiceTest.java:87)
+
+testLogin  Time elapsed: 0.005 s  <<< ERROR!
+org.springframework.dao.InvalidDataAccessResourceUsageException: could not prepare statement; SQL [select member0_.id as col_0_0_ from members member0_ where member0_.member_no=? limit ?]; nested exception is org.hibernate.exception.SQLGrammarException: could not prepare statement
+	at com.supermarket.member.service.MemberServiceTest.testLogin(MemberServiceTest.java:71)
+Caused by: org.hibernate.exception.SQLGrammarException: could not prepare statement
+	at com.supermarket.member.service.MemberServiceTest.testLogin(MemberServiceTest.java:71)
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: 
+Table "MEMBERS" not found (this database is empty); SQL statement:
+select member0_.id as col_0_0_ from members member0_ where member0_.member_no=? limit ? [42104-214]
+	at com.supermarket.member.service.MemberServiceTest.testLogin(MemberServiceTest.java:71)
+
+testRegisterDuplicateMemberNo  Time elapsed: 0.006 s  <<< ERROR!
+org.springframework.dao.InvalidDataAccessResourceUsageException: could not prepare statement; SQL [select member0_.id as col_0_0_ from members member0_ where member0_.member_no=? limit ?]; nested exception is org.hibernate.exception.SQLGrammarException: could not prepare statement
+	at com.supermarket.member.service.MemberServiceTest.testRegisterDuplicateMemberNo(MemberServiceTest.java:58)
+Caused by: org.hibernate.exception.SQLGrammarException: could not prepare statement
+	at com.supermarket.member.service.MemberServiceTest.testRegisterDuplicateMemberNo(MemberServiceTest.java:58)
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: 
+Table "MEMBERS" not found (this database is empty); SQL statement:
+select member0_.id as col_0_0_ from members member0_ where member0_.member_no=? limit ? [42104-214]
+	at com.supermarket.member.service.MemberServiceTest.testRegisterDuplicateMemberNo(MemberServiceTest.java:58)
+
+testRegister  Time elapsed: 0.004 s  <<< ERROR!
+org.springframework.dao.InvalidDataAccessResourceUsageException: could not prepare statement; SQL [select member0_.id as col_0_0_ from members member0_ where member0_.member_no=? limit ?]; nested exception is org.hibernate.exception.SQLGrammarException: could not prepare statement
+	at com.supermarket.member.service.MemberServiceTest.testRegister(MemberServiceTest.java:46)
+Caused by: org.hibernate.exception.SQLGrammarException: could not prepare statement
+	at com.supermarket.member.service.MemberServiceTest.testRegister(MemberServiceTest.java:46)
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: 
+Table "MEMBERS" not found (this database is empty); SQL statement:
+select member0_.id as col_0_0_ from members member0_ where member0_.member_no=? limit ? [42104-214]
+	at com.supermarket.member.service.MemberServiceTest.testRegister(MemberServiceTest.java:46)
+
