@@ -1,0 +1,24 @@
+-------------------------------------------------------------------------------
+Test set: com.supermarket.member.security.JwtTokenProviderTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in com.supermarket.member.security.JwtTokenProviderTest
+testGenerateToken  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException
+	at com.supermarket.member.security.JwtTokenProviderTest.setUp(JwtTokenProviderTest.java:20)
+
+testGetUsernameFromToken  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException
+	at com.supermarket.member.security.JwtTokenProviderTest.setUp(JwtTokenProviderTest.java:20)
+
+testGetUserIdFromToken  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException
+	at com.supermarket.member.security.JwtTokenProviderTest.setUp(JwtTokenProviderTest.java:20)
+
+testValidateToken_Invalid  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException
+	at com.supermarket.member.security.JwtTokenProviderTest.setUp(JwtTokenProviderTest.java:20)
+
+testValidateToken_Valid  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException
+	at com.supermarket.member.security.JwtTokenProviderTest.setUp(JwtTokenProviderTest.java:20)
+

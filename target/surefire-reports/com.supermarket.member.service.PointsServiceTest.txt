@@ -1,0 +1,22 @@
+-------------------------------------------------------------------------------
+Test set: com.supermarket.member.service.PointsServiceTest
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 2, Errors: 1, Skipped: 0, Time elapsed: 0.031 s <<< FAILURE! - in com.supermarket.member.service.PointsServiceTest
+testGetMemberPointsRecords  Time elapsed: 0.022 s  <<< ERROR!
+java.lang.NullPointerException
+	at com.supermarket.member.service.PointsServiceTest.testGetMemberPointsRecords(PointsServiceTest.java:112)
+
+testDeductPoints  Time elapsed: 0.002 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception thrown: java.lang.NullPointerException
+	at com.supermarket.member.service.PointsServiceTest.testDeductPoints(PointsServiceTest.java:78)
+Caused by: java.lang.NullPointerException
+	at com.supermarket.member.service.PointsServiceTest.lambda$testDeductPoints$2(PointsServiceTest.java:78)
+	at com.supermarket.member.service.PointsServiceTest.testDeductPoints(PointsServiceTest.java:78)
+
+testEarnPoints  Time elapsed: 0.002 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception thrown: java.lang.NullPointerException
+	at com.supermarket.member.service.PointsServiceTest.testEarnPoints(PointsServiceTest.java:53)
+Caused by: java.lang.NullPointerException
+	at com.supermarket.member.service.PointsServiceTest.lambda$testEarnPoints$0(PointsServiceTest.java:53)
+	at com.supermarket.member.service.PointsServiceTest.testEarnPoints(PointsServiceTest.java:53)
+
