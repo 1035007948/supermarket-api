@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: supermarket-member-api
+  
+  datasource:
+    url: jdbc:h2:mem:supermarket
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 
+  
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+server:
+  port: 8080
+
+jwt:
+  secret: supermarket-member-secret-key-2024
+  expiration: 86400000
+
+member:
+  level:
+    normal:
+      name: 普通会员
+      discount: 1.0
+      point-rate: 1
+    silver:
+      name: 银卡会员
+      discount: 0.95
+      point-rate: 1.5
+      threshold: 1000
+    gold:
+      name: 金卡会员
+      discount: 0.9
+      point-rate: 2.0
+      threshold: 5000
