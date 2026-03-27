@@ -222,7 +222,20 @@ public class MemberServiceImpl implements MemberService {
         transaction.setCreateTime(LocalDateTime.now());
         storedValueCardTransactionRepository.save(transaction);
 
+        addRechargePoints(card.getMemberId(), amount);
+
         return savedCard;
+    }
+
+    @Transactional
+    protected void addRechargePoints(Long memberId, BigDecimal rechargeAmount) {
+        Member member = getMemberById(memberId);
+        int rechargePoints = rechargeAmount.divide(BigDecimal.ONE).intValue();
+
+        member.setPoints(member.getPoints() + rechargePoints);
+        memberRepository.save(member);
+
+        updateMemberLevel(memberId);
     }
 
     @Override

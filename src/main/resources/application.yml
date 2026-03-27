@@ -2,25 +2,14 @@ server:
   port: 8080
 
 spring:
-  datasource:
-    url: jdbc:h2:mem:supermarketdb
-    driver-class-name: org.h2.Driver
-    username: sa
-    password:
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-    properties:
-      hibernate:
-        format_sql: true
-        dialect: org.hibernate.dialect.H2Dialect
+  profiles:
+    active: dev
 
 logging:
   level:
     com.supermarket: DEBUG
     org.springframework.security: DEBUG
+
+jwt:
+  secret: supermarketSecretKey1234567890SupermarketSecretKey
+  expiration: 86400000
