@@ -110,11 +110,19 @@ public class MemberService {
         
         member.setBalance(member.getBalance().add(totalAmount));
         
+        Integer earnedPoints = request.getAmount().multiply(BigDecimal.valueOf(0.1)).intValue();
+        member.setPoints(member.getPoints() + earnedPoints);
+        
+        member.setTotalSpent(member.getTotalSpent().add(request.getAmount()));
+        
+        updateMemberLevel(member);
+        
         MemberTransaction transaction = new MemberTransaction();
         transaction.setMemberId(member.getId());
         transaction.setType(TransactionType.RECHARGE);
         transaction.setAmount(totalAmount);
-        transaction.setDescription("储值卡充值，赠送: " + bonus);
+        transaction.setPoints(earnedPoints);
+        transaction.setDescription("储值卡充值，赠送金额: " + bonus + "，获得积分: " + earnedPoints);
         
         transactionRepository.save(transaction);
         Member updated = memberRepository.save(member);
