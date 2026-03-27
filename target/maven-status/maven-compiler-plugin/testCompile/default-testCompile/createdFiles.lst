@@ -1,0 +1,6 @@
+com\supermarket\api\service\MemberServiceTest.class
+com\supermarket\api\controller\AuthControllerTest.class
+com\supermarket\api\entity\MemberTest.class
+com\supermarket\api\controller\MemberControllerTest.class
+com\supermarket\api\entity\MemberLevelTest.class
+com\supermarket\api\security\JwtTokenUtilTest.class
