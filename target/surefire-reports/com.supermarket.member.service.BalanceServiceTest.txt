@@ -1,0 +1,29 @@
+-------------------------------------------------------------------------------
+Test set: com.supermarket.member.service.BalanceServiceTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 3, Errors: 1, Skipped: 0, Time elapsed: 0.104 s <<< FAILURE! - in com.supermarket.member.service.BalanceServiceTest
+testRecharge  Time elapsed: 0.003 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception thrown: java.lang.NullPointerException
+	at com.supermarket.member.service.BalanceServiceTest.testRecharge(BalanceServiceTest.java:57)
+Caused by: java.lang.NullPointerException
+	at com.supermarket.member.service.BalanceServiceTest.lambda$testRecharge$0(BalanceServiceTest.java:57)
+	at com.supermarket.member.service.BalanceServiceTest.testRecharge(BalanceServiceTest.java:57)
+
+testConsume  Time elapsed: 0.002 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception thrown: java.lang.NullPointerException
+	at com.supermarket.member.service.BalanceServiceTest.testConsume(BalanceServiceTest.java:83)
+Caused by: java.lang.NullPointerException
+	at com.supermarket.member.service.BalanceServiceTest.lambda$testConsume$2(BalanceServiceTest.java:83)
+	at com.supermarket.member.service.BalanceServiceTest.testConsume(BalanceServiceTest.java:83)
+
+testGetMemberBalanceRecords  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException
+	at com.supermarket.member.service.BalanceServiceTest.testGetMemberBalanceRecords(BalanceServiceTest.java:128)
+
+testRefund  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception thrown: java.lang.NullPointerException
+	at com.supermarket.member.service.BalanceServiceTest.testRefund(BalanceServiceTest.java:106)
+Caused by: java.lang.NullPointerException
+	at com.supermarket.member.service.BalanceServiceTest.lambda$testRefund$4(BalanceServiceTest.java:106)
+	at com.supermarket.member.service.BalanceServiceTest.testRefund(BalanceServiceTest.java:106)
+

@@ -1,0 +1,7 @@
+com\supermarket\member\controller\MemberControllerTest.class
+com\supermarket\member\service\BalanceServiceTest.class
+com\supermarket\member\MemberApplicationTests.class
+com\supermarket\member\security\JwtTokenProviderTest.class
+com\supermarket\member\service\PointsServiceTest.class
+com\supermarket\member\controller\AuthControllerTest.class
+com\supermarket\member\service\MemberServiceTest.class

@@ -1,0 +1,13 @@
+-------------------------------------------------------------------------------
+Test set: com.supermarket.member.service.MemberServiceTest
+-------------------------------------------------------------------------------
+Tests run: 11, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.076 s <<< FAILURE! - in com.supermarket.member.service.MemberServiceTest
+testCreateMember  Time elapsed: 0.057 s  <<< ERROR!
+org.mockito.exceptions.misusing.UnnecessaryStubbingException: 
+
+Unnecessary stubbings detected.
+Clean & maintainable test code requires zero unnecessary code.
+Following stubbings are unnecessary (click to navigate to relevant line of code):
+  1. -> at com.supermarket.member.service.MemberServiceTest.testCreateMember(MemberServiceTest.java:75)
+Please remove unnecessary stubbings or use 'lenient' strictness. More info: javadoc for UnnecessaryStubbingException class.
+

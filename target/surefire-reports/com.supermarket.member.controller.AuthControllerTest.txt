@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+Test set: com.supermarket.member.controller.AuthControllerTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.978 s <<< FAILURE! - in com.supermarket.member.controller.AuthControllerTest
+testLogin_InvalidCredentials  Time elapsed: 0.04 s  <<< ERROR!
+org.springframework.web.util.NestedServletException: Request processing failed; nested exception is org.springframework.security.authentication.BadCredentialsException: Invalid credentials
+	at com.supermarket.member.controller.AuthControllerTest.testLogin_InvalidCredentials(AuthControllerTest.java:84)
+Caused by: org.springframework.security.authentication.BadCredentialsException: Invalid credentials
+	at com.supermarket.member.controller.AuthControllerTest.testLogin_InvalidCredentials(AuthControllerTest.java:84)
+
